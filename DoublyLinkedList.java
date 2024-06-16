@@ -95,26 +95,22 @@ public class Node {
 
     //Delete a node from the end.
     public void deleteFromEnd() {
-        if (head == null) {  // Step 1: Check if the list is empty
+        if (head == null) {  
             System.out.println("List is empty.");
-            return;  // If the list is empty, print a message and exit the method
+            return;
         }
-
-        if (head.next == null) {  // Step 2: Check if there is only one node in the list
-            head = null;  // If there's only one node, set head to null
-            tail = null;  // Also set tail to null because the list will be empty after deletion
-            System.out.println("Last node deleted");  // Print a message
-            return;  // Exit the method
+        if (head.next == null) {  
+            head = null; 
+            tail = null; 
+            System.out.println("Last node deleted"); 
+            return; 
         }
+        Node last = tail; 
+        tail = last.prev;  
+        tail.next = null;  
 
-        // Step 3: If there are multiple nodes in the list
-        Node last = tail;  // Start from the tail node
-        tail = last.prev;  // Update the tail to be the previous node
-        tail.next = null;  // Set the new tail's next pointer to null
-
-        System.out.println("Last node deleted");  // Print a message indicating the last node was deleted
+        System.out.println("Last node deleted");
     }
-
 
     //Delete a node from the middle.
     public void deleteFromMiddle(int position) {
